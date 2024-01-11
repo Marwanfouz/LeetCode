@@ -1,10 +1,4 @@
 class Solution:
     def lengthOfLastWord(self, s: str) -> int:
-        listWord = s.split(' ')
-        if listWord[-1] == '':
-            for i in range(len(listWord)-1, -1, -1):
-                if listWord[i] != '':
-                    return len(listWord[i])
-                    break
-        else:
-            return len(listWord[-1])
+        lastWord = s.split()[-1]
+        return len(lastWord)
