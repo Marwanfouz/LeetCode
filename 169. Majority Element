@@ -1,0 +1,13 @@
+class Solution:
+    def majorityElement(self, nums: List[int]) -> int:
+        di = {}
+        big = 0
+        for i in nums:
+            di[i] = di.get(i,0) + 1
+        key_list = list(di.keys())
+        val_list = list(di.values())
+        for i in val_list:
+            if (i > big):
+                big = i
+        position = val_list.index(big)
+        return (key_list[position])
