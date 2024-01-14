@@ -1,15 +1,21 @@
 class Solution:
     def closeStrings(self, word1: str, word2: str) -> bool:
-        if (len(word1) != len(word2)):
-            return False
+        l1 = len(word1)
+        l2 = len(word2)
+        if (l1 != l2): return False
+        w1 = set(word1)
+        if (w1 != set(word2)): return False
+        wd1 = []
+        wd2 = []
+        for i in w1:
+            wd1.append(word1.count(i))
+            wd2.append(word2.count(i))
+            
+        if (sorted(wd1) != sorted(wd2)): return False
+        
+        return True
 
-        count1 = Counter(word1)
-        count2 = Counter(word2)
-
-        if (sorted(count1.values()) == sorted(count2.values()) and set(count1.keys()) == set(count2.keys())):
-            return True
-        return False
 ## Runtime 
-# 122ms Beats 87.65% of users with Python3
+# 72 ms Beats 99.76% of users with Python3
 ## Memory
-# 18.19 MB Beats 46.64% of users with Python3
+# 18.66 MB Beats 8.48% of users with Python3
