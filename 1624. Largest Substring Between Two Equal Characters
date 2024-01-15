@@ -1,0 +1,17 @@
+class Solution:
+    def maxLengthBetweenEqualCharacters(self, s: str) -> int:
+        positions = {}
+        max_length = -1
+        for i, char in enumerate(s):
+            if char in positions:
+                substring_length = i - positions[char] - 1
+                max_length = max(max_length, substring_length)
+            else:
+                positions[char] = i
+
+        return max_length
+
+## Runtime
+# 39ms Beats 83.66% of users with Python3
+## Memory
+# 17.48MB Beats 5.73% of users with Python3
