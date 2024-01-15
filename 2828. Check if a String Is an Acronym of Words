@@ -1,0 +1,13 @@
+class Solution:
+    def isAcronym(self, words: List[str], s: str) -> bool:
+        li =[]
+        if len(s) != len(words): return False
+        for i, w in enumerate(words):
+            if w.startswith(s[i]): li.append(True)
+            else: li.append(False)
+        return False if False in li else True
+
+## Runtime
+# 56 ms Beats 71.03% of users with Python3
+## Memory
+# 17.31 MB Beats 15.82% of users with Python3
