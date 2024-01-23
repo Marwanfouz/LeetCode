@@ -1,0 +1,27 @@
+/**
+ * @param {number[]} nums1
+ * @param {number} m
+ * @param {number[]} nums2
+ * @param {number} n
+ * @return {void} Do not return anything, modify nums1 in-place instead.
+ */
+var merge = function(nums1, m, nums2, n) {
+    let insertPositionOfNums1 = m + n - 1;
+    m -= 1;
+    n -= 1;
+    while (n >= 0) {
+        if (nums1[m] > nums2[n]) {
+            nums1[insertPositionOfNums1] = nums1[m];
+            m --;
+        } else {
+            nums1[insertPositionOfNums1] = nums2[n];
+            n --;
+    }
+        insertPositionOfNums1 -= 1;
+  }
+};
+
+// Runtime
+// 52 ms Beats 65.05% of users with JavaScript
+// Memory
+// 48.86 MB Beats 5.02% of users with JavaScript
